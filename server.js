@@ -4,7 +4,6 @@ import dotenv from "dotenv";
 import connectDB from "./Database/dbConfig.js";
 import recipeRouter from "./Routers/recipeRouter.js";
 
-
 dotenv.config();
 
 const app = express();
@@ -13,14 +12,14 @@ app.use(cors());
 
 connectDB();
 
-app.get("/",(req,res)=>{
-    res.status(200).send("Welcome to our Receipes APP")
-})
+app.get("/", (req, res) => {
+  res.status(200).send("Welcome to our Recipe APP");
+});
 
-app.use("/api/recipes",recipeRouter)
+app.use("/api/recipes", recipeRouter);
 
 const port = process.env.PORT || 5000;
 
 app.listen(port, () => {
-    console.log("server started and running on port");
-  })
+  console.log("server started and running on port");
+});
